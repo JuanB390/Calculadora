@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./estilo.css"></link>
+    <title>Prueba dos con JavaScript</title>
+</head>
+<body>
+    <h1>Calculadora con JavaScript</h1>
+    <br><br>
+    <hr>
+    <div class="content-calculator">
+    <div class="input-txt">
+    <input type="text" id="uno" placeholder="." style="text-align: end;" >
+</div>
+<div class="botones">
+    
+    <button onclick="addNum('1');"></strong>1</strong></button>
+    <button onclick="addNum('2');"><strong>2</strong></button>
+    <button onclick="addNum('3');"><strong>3</strong></button>
+    <button onclick="borrar('');"><strong>Del</strong></button>
+    <button onclick="addNum('4');"><strong>4</strong></button>
+    <button onclick="addNum('5');"><strong>5</strong></button>
+    <button onclick="addNum('6');"><strong>6</strong></button>
+    <button onclick="definirOperacion('+');"><strong>+</strong></button>
+    <button onclick="addNum('7');"><strong>7</strong></button>
+    <button onclick="addNum('8');"><strong>8</strong></button>
+    <button onclick="addNum('9');"><strong>9</strong></button>
+    <button onclick="definirOperacion('-');"><strong>-</strong></button>
+    <button onclick="definirOperacion('*');"><strong>*</strong></button>
+    <button onclick="addNum('0');"><strong>0</strong></button>
+    <button onclick="definirOperacion('/');"><strong>/</strong></button>
+    <button onclick="igual();"><strong>=</strong></button>
+</div>
+</div>
+    <script>
+        var numero;
+        var operacion;
+        function definirOperacion(_operacion){
+            numero = document.getElementById('uno').value;
+            document.getElementById('uno').value ='';
+            operacion = _operacion;
+        }
+        function igual(){
+            switch(operacion){
+                case '+': 
+                    numero=parseInt(numero) + parseInt(document.getElementById('uno').value);
+                    break;
+                case '-': 
+                    numero=parseInt(numero) - parseInt(document.getElementById('uno').value);
+                    break;
+                case '*': 
+                    numero=parseInt(numero) * parseInt(document.getElementById('uno').value);
+                    break;
+                case '/': 
+                    numero=parseInt(numero) / parseInt(document.getElementById('uno').value);
+                    break;
+                    default:
+                        alert('Sintax Error');
+                        numero = '.';
+                        
+                        break;
+        }
+            document.getElementById('uno').value = numero;
+    }
+        function addNum(caracter){
+            let newValue = document.getElementById('uno').value;//Leer valor.
+            newValue += caracter;
+            document.getElementById('uno').value =  newValue;//Sobreescribir valor.
+        }
+        function borrar(numero){
+            numero = document.getElementById('uno').value;
+            document.getElementById('uno').value = '';
+        }
+    </script>
+    
+</body>
+</html>
